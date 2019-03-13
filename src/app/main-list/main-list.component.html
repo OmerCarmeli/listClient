@@ -1,0 +1,47 @@
+<div class="head">
+  products
+</div>
+<div>
+  <!--SORT-->
+<div class="midHead">
+    <button mat-raised-button color="primary" (click)="sortByID()">Sort by ID</button>
+    <button mat-raised-button color="primary" (click)="sortByProduct()">Sort by Product</button>
+  </div>
+
+  <!--FILTER-->
+<div>
+  <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Search for product" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+</div>
+
+
+</div>
+
+<div class="container">
+  
+    <cdk-virtual-scroll-viewport itemSize="70" class="example-viewport" (scroll)="scrolled($event)" >
+      <div *cdkVirtualFor="let item of ds" class="example-item" (click)="itemSelected(item)">
+        <div class="p-item">
+          <p>{{item._id}}</p>
+        </div>
+              <div class="img-item">
+                <p>{{item.product}}</p>
+              </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+
+</div>
+
+
+
+
+
+  

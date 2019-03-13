@@ -1,0 +1,25 @@
+<div style=" background-color: gray;  padding-top: 3%;
+padding-bottom: 3%;">
+
+  <div class="divContainer">
+    
+    <div class="innerHead">
+      <div >
+          <p>{{item.product}}</p>
+          <p>Price:{{item.price}}</p>
+        </div>
+        <div [ngStyle]="{'-webkit-text-stroke-color': item.inStock? 'green' : 'red'}">
+          {{getStockStatus()}}
+        </div>
+      </div>
+      
+      <div class="imgDiv">
+        <img style="border-radius: 20px;" [src]="item.imageUrl" >
+      </div>
+      
+      <div class="footer">
+        <button mat-fab color="accent" (click)="back()">Back</button>
+      </div>
+      
+</div>
+    </div>
